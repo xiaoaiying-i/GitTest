@@ -5,6 +5,8 @@ public class Hlelloworld2 {
         System.out.println("helloworld2!!,我是分支2");
         System.out.println("helloworld2!!,我是分支2");
 
+        System.out.println("分支2修改了！");
+
 
     }
 }

@@ -1,0 +1,17 @@
+
+
+
+1--让Mybatis框架支持二级缓存(在主配置文件中配置)
+    <settings>
+        <!-- 开启二级缓存的支持 -->
+        <setting name="cacheEnabled" value="true"/>
+    </settings>
+2--让当前映射文件支持二级缓存(在接口对应配置文件中配置)
+    <mapper namespace="com.itheima.dao.IUserDao">
+        <!-- 开启二级缓存的支持 -->
+        <cache></cache>
+    </mapper>
+3--让当前操作支持二级缓存(在select等操作标签中配置)
+    <select id="findById" resultType="user" parameterType="int" useCache="true">
+        select * from user where id = #{uid}
+    </select>

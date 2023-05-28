@@ -1,6 +1,6 @@
 package com.xiaoai.webhook.git;
 
-import com.xiaoai.webhook.Api;
+import com.xiaoai.webhook.wh.Api;
 import com.xiaoai.webhook.HttpClient;
 import com.xiaoai.webhook.wh.Event;
 import com.xiaoai.webhook.wh.WebHook;
@@ -33,11 +33,12 @@ public class GitServer {
         WebHook webHook = webHookManage.getWebHook(repositoryName);
         if (webHook != null){
             for (Event e : webHook.getEventList()) {
+                // todo: 验证是否回调，简单模拟， 具体逻辑根据需要实现
                 if (e.name().equals(event.name())){
                     Api callBackApi = webHook.getCallBackApi();
                     callBackApi.setBody("callback-response-" + data);
                     Object apiResp = HttpClient.execute(callBackApi);
-                    // todo:重试机制
+                    // todo:异常重试机制
                 }
             }
         }

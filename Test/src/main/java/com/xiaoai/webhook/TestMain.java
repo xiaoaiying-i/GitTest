@@ -3,6 +3,7 @@ package com.xiaoai.webhook;
 import com.xiaoai.webhook.git.GitClient;
 import com.xiaoai.webhook.git.event.DelEvent;
 import com.xiaoai.webhook.git.event.PushEvent;
+import com.xiaoai.webhook.wh.Api;
 import com.xiaoai.webhook.wh.Event;
 import com.xiaoai.webhook.wh.WebHook;
 
@@ -13,9 +14,7 @@ import java.util.List;
  * @Author xiaoaiying
  * @Date 2023-05-28 18:04
  */
-public class WebHookMain {
-    
-    
+public class TestMain {
     public static void main(String[] args){
         // 操作的仓库
         GitClient client = GitClient.connect("test-repository");
@@ -27,7 +26,7 @@ public class WebHookMain {
         eventTriggerList.add(new DelEvent());
 
         // 绑定回调api
-        Api api = new Api(client, "http://test.url.com");
+        Api api = new Api("http://test.url.com");
         api.addHeaders("Content-Type", "application/json");
         WebHook webHook = new WebHook(eventTriggerList, api);
         client.registerWebHook(webHook);

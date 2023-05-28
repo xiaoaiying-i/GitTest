@@ -1,4 +1,6 @@
-package com.xiaoai.webhook;
+package com.xiaoai.webhook.wh;
+
+import com.xiaoai.webhook.git.GitClient;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -8,15 +10,12 @@ import java.util.Map;
  * @Date 2023-05-28 18:46
  */
 public class Api {
-    public Client client; // 非元数据信息， 方便模拟回调api接口实现使用
-
     private String url;
     private Map<String, String> headers;
     private Map<String, Object> params;
     private Object body;
 
-    public Api(Client client, String url) {
-        this.client = client;
+    public Api(String url) {
         this.url = url;
     }
 

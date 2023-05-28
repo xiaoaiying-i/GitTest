@@ -1,6 +1,5 @@
 package com.xiaoai.webhook.wh;
 
-import com.xiaoai.webhook.Api;
 import lombok.Data;
 
 import java.util.List;
